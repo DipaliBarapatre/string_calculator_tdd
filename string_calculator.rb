@@ -9,8 +9,16 @@ class StringCalculator
 	    #Find delimeters
 		delimeter, numbers_list = get_delimeter(numbers)
 
+		#Replace new lines with commas
+		numbers = numbers_list.gsub("\n", ",")
+		numbers = numbers.split(",").map(&:to_i)
+
+		#Sum of numbers
+		numbers.sum 
+
 	end
 
+	
 	private
 
 	def get_delimeter(numbers)
