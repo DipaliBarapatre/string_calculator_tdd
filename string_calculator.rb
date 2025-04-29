@@ -13,6 +13,10 @@ class StringCalculator
 		numbers = numbers_list.gsub("\n", ",")
 		numbers = numbers.split(",").map(&:to_i)
 
+		#Check negative numbers
+		negative_numbers = numbers.select { |num| num < 0 }
+        raise "Negatives not allowed: #{negative_numbers.join(', ')}" unless negative_numbers.empty?
+
 		#Sum of numbers
 		numbers.sum 
 
